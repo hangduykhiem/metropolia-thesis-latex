@@ -88,7 +88,6 @@
 % If you are Finnish citizen, you must have 2 abstracts, one in Finnish (or Swedish 
 % depending on your mother tongue) and one in English regardless of the main language of 
 % your thesis.
-\input{chapters/0abstract_fi.tex}
 \input{chapters/0abstract_en.tex}
 
 %----------------------------------------------------------------------------------------
@@ -122,22 +121,13 @@
 
 \input{style/content.tex}%reset page number to 1, no more logo footer, etc.
 
-% Thesis content if you strictly follow the "Final Year Project guide". Of course, you 
-% can adapt to your specific needs (add more chapter, rename them, etc.).
 \input{chapters/introduction.tex}
-% uncomment what you need.
-%\input{chapters/projectSpec.tex}
-%\input{chapters/methods.tex}
-%\input{chapters/theory.tex}
-%\input{chapters/solution.tex}
-%\input{chapters/conclusion.tex}
+\input{chapters/projectSpec.tex}
+\input{chapters/theory.tex}
+\input{chapters/solution.tex}
+\input{chapters/discussion.tex}
+\input{chapters/conclusion.tex}
 
-% Sample content to demonstrate LaTeX command. You will likely delete this line and the 
-% next \input{sample/*} lines. You are also safe to delete the sample/ folder and its
-% content once you refershed your LaTeX skills. Also check the appendix samples.
-\input{sample/1content.tex}
-\input{sample/2lorem.tex}
-\input{sample/3graph.tex}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY REFERENCES
@@ -155,23 +145,11 @@
 % You will have to play with these numbers and eventually add the \vspace line  before 
 % some \chapter and force another number.
 % To add more fun, time to time the table of content get wrong after a build :(
-\addtocontents{toc}{\vspace{11pt}}
-\pretocmd{\chapter}{\addtocontents{toc}{\protect\vspace{-24pt}}}{}{}
 
 \liite{1}% This is a hack to have right page numbering for each appendix. Make sure to 
 	 % use a unique number for each appendix.
-\input{sample/Xappendix1.tex}% Sample content to demonstrate appendix in LaTeX. You
 % are safe to delete this lines (and the next samples) once you refreshed your LaTeX 
 % skills (and safe to delete the sample folder and all its file too).
-
-\addtocontents{toc}{\vspace{11pt}}%fix vertical space for Table of Content
-\liite{2}
-\input{sample/Xappendix2.tex}
-
-\addtocontents{toc}{\vspace{11pt}}
-\liite{3}
-\input{sample/X_R_example.tex}
-
 
 %----------------------------------------------------------------------------------------
 %	THIS IS THE END 

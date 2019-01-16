@@ -1,7 +1,102 @@
-% Theoretical background
+\chapter{Theory}
 
-\chapter{Theoretical background}
+Introduction to the theory section
 
-Check Final Year Project Guide for the content of Theoretical background chapter.
+\section{TacoTaco framework}
+
+\subsection{About TacoTaco}
+
+- Developing an android application can be difficult without proper tool set
+    - Increasingly big, unorganized codebase
+        + Complicated business logic
+        + Complicated rendering logic
+    - Boilerplate to handle trivial work, such as saving business states, passing variable between activity, etc.
+    - Testing for the application would be hard.
+    => Toolings and frameworks are needed to maintain a sane project\
+
+- A framework provide you what needed to build a maintainable and extendable project.
+    - Reason why A project need to be maintainable and extenable
+        - Maintainable => Save later headache
+        - Extendable => More features, more funding?
+    - Framework provide a set way of doing thing:
+        - Add a new component
+        - Modify pre-existing component
+        - Stucture the dependencies between components, how  components work together
+    - Using framework saves a lot of times, headache, makes more testable code
+    
+- Taco Taco is a modern framework suitable for android development:
+    - Get lesson from other existing architecture framework: MVP, MVI, MVVM, Conductor, Google Architecture
+    - Is actually used in production in Wolt
+    - With these characteristic:
+        - Single Activity ( UI Tree based )
+        - MVI based
+        - Data driven rendering
+
+\subsection{Introduction to TacoTaco}
+
+- TacoTaco is singleActivity:
+    - Base on Conductor
+    - because navigating with Activities are hard to manages
+        - passing states between parcelable might be
+        - creating activity is impacting performance
+        - Same activity context can be used every
+    - Includes multiple controller, interactor and renderer (base component of TacoTaco)
+        
+- TacoTaco is state and action based:
+    - MVI architecutre, with action is the intent (To separate from android intent)
+    - every time state update, renderer states update the controller, which sole responsibily is to display the data.
+    
+- TacoTaco manage your states.
+    - main concern of a lot of developer is to manage onSavedInstanceState.
+        - List things could go wrong here.
+        - Why parcelable is bad.
+    - TacoTaco helps solve this.
+
+- TacoTaco is data driven rendering:\
+    - Each interactors subscribe to multiple data source
+    - states is update when datasource update.
+    
+- TacoTAco is MVI.
+
+- TacoTaco works well with Dagger. (Hook)
+
+[Insert TacoTaco architecutral picture here]
+
+\subsection{How Taco Taco Works}
+
+- Describe Controller
+- Describe Root Controller
+- Describe Interactor
+- Describe Renderer.
+- Describe Analytics
+- Describe Transition, Command
+- Describe relation with Dagger (What's wrong here: Kapt is very hard to setup)
+
+\subsection{Comparison with other architecture}
+
+- Do further reading here: 
+    - https://link.springer.com/book/10.1007%2F978-1-4842-3180-7
+    - https://www.researchgate.net/profile/Stephen_Pope/publication/248825145_A_cookbook_for_using_the_model_-_view_controller_user_interface_paradigm_in_Smalltalk_-_80/links/5436c5f30cf2643ab9888926/A-cookbook-for-using-the-model-view-controller-user-interface-paradigm-in-Smalltalk-80.pdf
+    - http://www.wildcrest.com/Potel/Portfolio/mvp.pdf
+    - https://ieeexplore.ieee.org/abstract/document/469759 (weird model)
+    - http://megabyte.utm.ro/articole/2010/info/sem1/InfoStraini_Pdf/1.pdf
+    
+\section{OCR technology}
+
+- History of OCR:
+    - The history of OCR: optical character recognition (1982)
+    - http://www.historyofinformation.com/expanded.php?id=885
+    - OCR and computer vision
+
+
+- Using deep learning in OCR
+
+\subsection{OCR model training}
+
+Insert discussion about OCR training, machine learning recognition of character
+
+\subsection{Tessaract and Java API}
+
+Insert technical discussion on the open source Tessaract implmentation, as well as the Java binding.
 
 \clearpage %force the next chapter to start on a new page. Keep that as the last line of your chapter!
