@@ -50,16 +50,18 @@
 %insert source code
 %\usepackage{listings}
 %require -8bit -shell-escape in the xelatex compile command
+%if compiling locally, consider options cachedir=minted,outputdir=~/.tex
 \usepackage[newfloat]{minted}
 \setminted{tabsize=2,linenos,breaklines,breaksymbolleft={\quad},baselinestretch=1}
 \setmintedinline{breaklines}
-\usepackage[justification=justified,singlelinecheck=false]{caption}
+\usepackage[justification=justified,singlelinecheck=false,font=small]{caption}
 \usepackage{color}
 %force the width of a table instead of column
 \usepackage{tabularx}
 \usepackage{booktabs} %why not booktabs? :3
 % Abbreviations, acronym and glossary
-\usepackage[acronym,nonumberlist,section]{glossaries}%xindy,%toc, ,nomain
+\usepackage[acronym,toc,nonumberlist,section=chapter]{glossaries}%xindy,%toc, ,nomain
+\renewcommand*{\glsclearpage}{}
 
 \usepackage{float} % For forced figure location with modifier H (\begin{figure}[H])
 \usepackage{cite} % Make citations to match Metropolia thesis guide
@@ -109,9 +111,6 @@
 %border around images
 \setlength\fboxsep{0pt}
 \setlength\fboxrule{0.5pt}
-%caption font size
-\captionnamefont{\small}
-\captiontitlefont{\small}
 %space after figure caption (and other float elements)
 \setlength{\belowcaptionskip}{-7pt}
 
@@ -120,7 +119,7 @@
 
 %SOURCE CODE
 \newenvironment{code}{\captionsetup{type=listing}}{}
-\IfLanguageName {finnish} {\SetupFloatingEnvironment{listing}{name=Listaus}} {}
+\IfLanguageName {finnish} {\SetupFloatingEnvironment{listing}{name=Koodiesimerkki}} {}%was Listaus
 %\counterwithout{lstlisting}{chapter}
 %moved after begin document, otherwise does not compile
 
@@ -142,7 +141,7 @@
 \setcounter{secnumdepth}{2}
 \renewcommand{\tocheadstart}{\vspace*{-15pt}}
 \renewcommand{\printtoctitle}[1]{\fontsize{13pt}{13pt}\bfseries #1}
-\renewcommand{\aftertoctitle}{\vspace*{-22pt}\afterchaptertitle}
+%\renewcommand{\aftertoctitle}{\vspace*{-22pt}\afterchaptertitle}
 %spacing afer a chapter in toc
 \preto\section{%
   \ifnum\value{section}=0\addtocontents{toc}{\vskip11pt}\fi
@@ -203,3 +202,6 @@
 \makepagestyle{abstract}
 \makeevenhead{abstract}{}{}{Abstract}
 \makeoddhead{abstract}{}{}{Abstract}
+
+%footer on every pages
+\LLCornerWallPaper{1}{\IfLanguageName{finnish}{footer_fi}{footer_en}}

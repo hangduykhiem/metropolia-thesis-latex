@@ -3,30 +3,32 @@
 
 \makeatletter
 \renewcommand{\maketitle}{
+\newgeometry{left=4.5cm}
 \thispagestyle{empty}
-\ThisCenterWallPaper{1}{viiva}
+\ThisULCornerWallPaper{1}{\IfLanguageName{finnish}{metropolia_fi}{metropolia_en}}
 %
-\vspace*{9.5cm}
-\tn{\LARGE\@author\\[22pt]\Huge\IfLanguageName {finnish}{\otsikko}{\@title}\\[22pt]\LARGE\alaotsikko\\[1.75cm]}
+\vspace*{12.8cm}
+\tn{\Large\@author\\[1cm]\Huge\IfLanguageName {finnish}{\color[RGB]{155,50,35}\otsikko}{\color[RGB]{31,73,125}\@title}}%\\[22pt]\LARGE\alaotsikko\\[1.75cm]}
 
+\null\vfill
 \parbox{.7\linewidth}{
 \IfLanguageName {finnish}{
   Metropolia Ammattikorkeakoulu\\
   \tutkinto \\
   \kohjelma \\
-  \thesis\\
+  \thesisfi\\
   \pvm
 } {
   Helsinki Metropolia University of Applied Sciences\\
   \metropoliadegree \\
   \metropoliadegreeprogramme \\
-  \thesis\\
+  \thesisen\\
   \IfLanguageName {finnish}{\pvm}{\@date} % D.M.YYYY date format for Finnish. D Month YYYY for English
 }
 }
-\ThisLRCornerWallPaper{1}{metropolia}
-%
+\vspace*{-1.5cm}
 \clearpage
+\restoregeometry
 }
 \makeatother
 
